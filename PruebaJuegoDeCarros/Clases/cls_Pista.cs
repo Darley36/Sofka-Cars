@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PruebaJuegoDeCarros.Datos;
 
 namespace PruebaJuegoDeCarros.Clases
 {
@@ -13,6 +14,7 @@ namespace PruebaJuegoDeCarros.Clases
         private double longitud;
         private string pais;
 
+        public cls_Pista() { }
         public cls_Pista(string nombre, int id, double longitud, string pais)
         {
             this.nombre = nombre;
@@ -26,6 +28,11 @@ namespace PruebaJuegoDeCarros.Clases
         public double Longitud { get => longitud; set => longitud = value; }
         public string Pais { get => pais; set => pais = value; }
 
-        
+        public List<cls_Pista> llamarPista()
+        {
+            DB db = new DB();
+            List<cls_Pista> lista = db.consultaPista();
+            return lista;
+        }
     }
 }

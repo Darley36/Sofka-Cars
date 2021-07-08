@@ -60,5 +60,24 @@ namespace PruebaJuegoDeCarros.Datos
             con.Close();
             return cont;
         }
+
+        public List<cls_Pista> consultaPista()
+        {
+            List<cls_Pista> lista = new List<cls_Pista>();
+            con.Open();
+            string Query = "SELECT Nombre, ID, Km FROM PISTA";
+            SqlCommand cmd = new SqlCommand(Query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    cls_Pista pista = new cls_Pista(dr.GetString(0), dr.GetInt32(1), dr.GetDouble(2), "");
+                    lista.Add(pista);
+                }
+            }
+            con.Close();
+            return lista;
+        }
     }
 }

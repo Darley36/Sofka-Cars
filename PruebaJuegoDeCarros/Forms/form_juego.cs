@@ -17,6 +17,7 @@ namespace PruebaJuegoDeCarros.Forms
     {
         DB db = new DB();
         List<string> jugadores = new List<string>();
+        List<cls_Pista> lpistas;
         public form_juego()
         {
             InitializeComponent();
@@ -93,7 +94,38 @@ namespace PruebaJuegoDeCarros.Forms
                 {
                     this.lb_jugadores.Items.Add(element);
                 }
-            }          
+            }
+
+            cls_Pista pista = new cls_Pista();
+            lpistas = pista.llamarPista();
+            foreach (cls_Pista element in lpistas)
+            {
+                this.cmb_pista.Items.Add(element.Nombre);
+            }
+
+            cmb_pista.SelectedIndex = 0;
+            buscarKM(cmb_pista.Text);
+        }
+
+        void buscarKM(string km)
+        {
+            foreach (cls_Pista element in lpistas)
+            {
+                if(km == element.Nombre)
+                {
+                    txt_km.Text = element.Longitud.ToString();
+                }
+            }
+        }
+
+        private void cmb_pista_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            buscarKM(cmb_pista.Text);
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

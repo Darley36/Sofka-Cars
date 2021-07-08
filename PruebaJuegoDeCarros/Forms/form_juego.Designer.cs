@@ -43,6 +43,8 @@
             this.btn_empezar = new System.Windows.Forms.Button();
             this.btn_ingresar = new System.Windows.Forms.Button();
             this.lb_jugadores = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_km = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -76,11 +78,12 @@
             // 
             // cmb_pista
             // 
-            this.cmb_pista.FormattingEnabled = true;
+            this.cmb_pista.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmb_pista.Location = new System.Drawing.Point(41, 176);
             this.cmb_pista.Name = "cmb_pista";
             this.cmb_pista.Size = new System.Drawing.Size(130, 21);
             this.cmb_pista.TabIndex = 3;
+            this.cmb_pista.SelectedIndexChanged += new System.EventHandler(this.cmb_pista_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -156,10 +159,11 @@
             this.btn_guardar.TabIndex = 11;
             this.btn_guardar.Text = "guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_empezar
             // 
-            this.btn_empezar.Location = new System.Drawing.Point(41, 215);
+            this.btn_empezar.Location = new System.Drawing.Point(37, 263);
             this.btn_empezar.Name = "btn_empezar";
             this.btn_empezar.Size = new System.Drawing.Size(143, 59);
             this.btn_empezar.TabIndex = 12;
@@ -185,12 +189,33 @@
             this.lb_jugadores.Size = new System.Drawing.Size(120, 303);
             this.lb_jugadores.TabIndex = 14;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(38, 205);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 24);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "KM";
+            // 
+            // txt_km
+            // 
+            this.txt_km.Enabled = false;
+            this.txt_km.Location = new System.Drawing.Point(82, 209);
+            this.txt_km.Name = "txt_km";
+            this.txt_km.Size = new System.Drawing.Size(47, 20);
+            this.txt_km.TabIndex = 16;
+            // 
             // form_juego
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(555, 326);
+            this.Controls.Add(this.txt_km);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.lb_jugadores);
             this.Controls.Add(this.btn_ingresar);
             this.Controls.Add(this.btn_empezar);
@@ -231,5 +256,7 @@
         private System.Windows.Forms.Button btn_empezar;
         private System.Windows.Forms.Button btn_ingresar;
         private System.Windows.Forms.ListBox lb_jugadores;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_km;
     }
 }
