@@ -14,6 +14,8 @@ namespace PruebaJuegoDeCarros.Clases
         private int numeroVictorias;
         private int id_Carro;
 
+        public cls_Jugador(){}
+
         public cls_Jugador(string nombreUsuario, int id, int edad, int numeroVictorias, int id_Carro)
         {
             this.nombreUsuario = nombreUsuario;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PruebaJuegoDeCarros.Forms;
 
 namespace PruebaJuegoDeCarros.Forms
 {
@@ -20,6 +21,13 @@ namespace PruebaJuegoDeCarros.Forms
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_empezar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            form_cars fc = new form_cars();
+            fc.Show();
         }
     }
 }

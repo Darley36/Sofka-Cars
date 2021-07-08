@@ -25,5 +25,7 @@ namespace PruebaJuegoDeCarros.Clases
         public int Id { get => id; set => id = value; }
         public double Longitud { get => longitud; set => longitud = value; }
         public string Pais { get => pais; set => pais = value; }
+
+        
     }
 }

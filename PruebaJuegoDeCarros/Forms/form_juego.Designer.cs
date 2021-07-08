@@ -164,6 +164,7 @@
             this.btn_empezar.TabIndex = 12;
             this.btn_empezar.Text = "Empezar";
             this.btn_empezar.UseVisualStyleBackColor = true;
+            this.btn_empezar.Click += new System.EventHandler(this.btn_empezar_Click);
             // 
             // btn_ingresar
             // 

@@ -37,6 +37,7 @@
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_jugar = new System.Windows.Forms.Button();
             this.btn_mostrarVictorias = new System.Windows.Forms.Button();
+            this.btn_salir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -96,7 +97,7 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(443, 30);
+            this.btn_guardar.Location = new System.Drawing.Point(443, 12);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(117, 59);
             this.btn_guardar.TabIndex = 8;
@@ -105,21 +106,33 @@
             // 
             // btn_jugar
             // 
-            this.btn_jugar.Location = new System.Drawing.Point(443, 129);
+            this.btn_jugar.Location = new System.Drawing.Point(443, 95);
             this.btn_jugar.Name = "btn_jugar";
             this.btn_jugar.Size = new System.Drawing.Size(117, 59);
             this.btn_jugar.TabIndex = 9;
             this.btn_jugar.Text = "Jugar";
             this.btn_jugar.UseVisualStyleBackColor = true;
+            this.btn_jugar.Click += new System.EventHandler(this.btn_jugar_Click);
             // 
             // btn_mostrarVictorias
             // 
-            this.btn_mostrarVictorias.Location = new System.Drawing.Point(443, 231);
+            this.btn_mostrarVictorias.Location = new System.Drawing.Point(443, 185);
             this.btn_mostrarVictorias.Name = "btn_mostrarVictorias";
             this.btn_mostrarVictorias.Size = new System.Drawing.Size(117, 58);
             this.btn_mostrarVictorias.TabIndex = 10;
             this.btn_mostrarVictorias.Text = "Victorias";
             this.btn_mostrarVictorias.UseVisualStyleBackColor = true;
+            this.btn_mostrarVictorias.Click += new System.EventHandler(this.btn_mostrarVictorias_Click);
+            // 
+            // btn_salir
+            // 
+            this.btn_salir.Location = new System.Drawing.Point(443, 274);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(117, 58);
+            this.btn_salir.TabIndex = 11;
+            this.btn_salir.Text = "Salir";
+            this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // Form1
             // 
@@ -127,6 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(634, 359);
+            this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_mostrarVictorias);
             this.Controls.Add(this.btn_jugar);
             this.Controls.Add(this.btn_guardar);
@@ -154,6 +168,7 @@
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_jugar;
         private System.Windows.Forms.Button btn_mostrarVictorias;
+        private System.Windows.Forms.Button btn_salir;
     }
 }
 
