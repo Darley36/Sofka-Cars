@@ -79,5 +79,19 @@ namespace PruebaJuegoDeCarros.Datos
             con.Close();
             return lista;
         }
+
+        public int insertarPista(cls_Pista cp)
+        {
+            string Query = "INSERT INTO PISTA (Nombre,Km,Pais) VALUES" +
+                "(@nombre, @km, @pais)";
+            con.Open();
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.Parameters.AddWithValue("@nombre", cp.Nombre);
+            cmd.Parameters.AddWithValue("@km", cp.Longitud);
+            cmd.Parameters.AddWithValue("@pais", cp.Pais);
+            int cont = cmd.ExecuteNonQuery();
+            con.Close();
+            return cont;
+        }
     }
 }

@@ -96,6 +96,11 @@ namespace PruebaJuegoDeCarros.Forms
                 }
             }
 
+            llenarPistas();
+        }
+
+        void llenarPistas()
+        {
             cls_Pista pista = new cls_Pista();
             lpistas = pista.llamarPista();
             foreach (cls_Pista element in lpistas)
@@ -125,7 +130,58 @@ namespace PruebaJuegoDeCarros.Forms
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            int cont = 1;
+            cls_Pista pista = new cls_Pista();
+            if (String.IsNullOrEmpty(txt_nombre.Text))
+            {
+                MessageBox.Show("Digite el Nombre de ula pista");
+            }
+            else if (String.IsNullOrEmpty(txt_distancia.Text))
+            {
+                MessageBox.Show("Digite la distancia en kilometros");
+            }
+            else if (String.IsNullOrEmpty(txt_pais.Text))
+            {
+                MessageBox.Show("ingrese el pais");
+            }
+            else
+            {
+                pista.Nombre = txt_nombre.Text;
+                pista.Longitud = Int32.Parse(txt_distancia.Text);
+                pista.Pais = txt_pais.Text;
+                pista.Id = 0;
 
+                foreach (cls_Pista element in lpistas)
+                {
+                    if (txt_nombre.Text == element.Nombre)
+                    {
+                        MessageBox.Show("El nombre de la pista ya ha sido utilizado");
+                        cont = 0;
+                    }
+                }
+                if (cont==1)
+                {
+                    int n = db.insertarPista(pista);
+                    if (n > 0)
+                    {
+                        txt_nombre.Clear();
+                        txt_distancia.Clear();
+                        txt_pais.Clear();
+                        cmb_pista.Items.Clear();
+                        llenarPistas();
+                        MessageBox.Show("Datos ingresados con exito");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La pista no fue ingresada");
+                }
+            }
+        }
+
+        private void btn_Salir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

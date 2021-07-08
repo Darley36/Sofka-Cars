@@ -45,6 +45,7 @@
             this.lb_jugadores = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_km = new System.Windows.Forms.TextBox();
+            this.btn_Salir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -208,12 +209,23 @@
             this.txt_km.Size = new System.Drawing.Size(47, 20);
             this.txt_km.TabIndex = 16;
             // 
+            // btn_Salir
+            // 
+            this.btn_Salir.Location = new System.Drawing.Point(416, 276);
+            this.btn_Salir.Name = "btn_Salir";
+            this.btn_Salir.Size = new System.Drawing.Size(127, 38);
+            this.btn_Salir.TabIndex = 17;
+            this.btn_Salir.Text = "Salir";
+            this.btn_Salir.UseVisualStyleBackColor = true;
+            this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
+            // 
             // form_juego
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(555, 326);
+            this.Controls.Add(this.btn_Salir);
             this.Controls.Add(this.txt_km);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lb_jugadores);
@@ -258,5 +270,6 @@
         private System.Windows.Forms.ListBox lb_jugadores;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_km;
+        private System.Windows.Forms.Button btn_Salir;
     }
 }
