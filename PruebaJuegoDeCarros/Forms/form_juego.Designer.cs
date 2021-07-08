@@ -42,6 +42,7 @@
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_empezar = new System.Windows.Forms.Button();
             this.btn_ingresar = new System.Windows.Forms.Button();
+            this.lb_jugadores = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -86,7 +87,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(305, 9);
+            this.label3.Location = new System.Drawing.Point(412, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 24);
             this.label3.TabIndex = 4;
@@ -94,21 +95,21 @@
             // 
             // txt_nombre
             // 
-            this.txt_nombre.Location = new System.Drawing.Point(309, 69);
+            this.txt_nombre.Location = new System.Drawing.Point(416, 78);
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(100, 20);
             this.txt_nombre.TabIndex = 5;
             // 
             // txt_distancia
             // 
-            this.txt_distancia.Location = new System.Drawing.Point(309, 117);
+            this.txt_distancia.Location = new System.Drawing.Point(416, 126);
             this.txt_distancia.Name = "txt_distancia";
             this.txt_distancia.Size = new System.Drawing.Size(100, 20);
             this.txt_distancia.TabIndex = 6;
             // 
             // txt_pais
             // 
-            this.txt_pais.Location = new System.Drawing.Point(309, 167);
+            this.txt_pais.Location = new System.Drawing.Point(416, 176);
             this.txt_pais.Name = "txt_pais";
             this.txt_pais.Size = new System.Drawing.Size(100, 20);
             this.txt_pais.TabIndex = 7;
@@ -118,7 +119,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(310, 42);
+            this.label4.Location = new System.Drawing.Point(417, 51);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 17);
             this.label4.TabIndex = 8;
@@ -129,7 +130,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(310, 97);
+            this.label5.Location = new System.Drawing.Point(417, 106);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 17);
             this.label5.TabIndex = 9;
@@ -141,7 +142,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(310, 145);
+            this.label6.Location = new System.Drawing.Point(417, 154);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 17);
             this.label6.TabIndex = 10;
@@ -149,7 +150,7 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(309, 215);
+            this.btn_guardar.Location = new System.Drawing.Point(416, 224);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(75, 23);
             this.btn_guardar.TabIndex = 11;
@@ -174,13 +175,23 @@
             this.btn_ingresar.TabIndex = 13;
             this.btn_ingresar.Text = "Ingresar";
             this.btn_ingresar.UseVisualStyleBackColor = true;
+            this.btn_ingresar.Click += new System.EventHandler(this.btn_ingresar_Click);
+            // 
+            // lb_jugadores
+            // 
+            this.lb_jugadores.FormattingEnabled = true;
+            this.lb_jugadores.Location = new System.Drawing.Point(231, 19);
+            this.lb_jugadores.Name = "lb_jugadores";
+            this.lb_jugadores.Size = new System.Drawing.Size(120, 303);
+            this.lb_jugadores.TabIndex = 14;
             // 
             // form_juego
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(453, 286);
+            this.ClientSize = new System.Drawing.Size(555, 326);
+            this.Controls.Add(this.lb_jugadores);
             this.Controls.Add(this.btn_ingresar);
             this.Controls.Add(this.btn_empezar);
             this.Controls.Add(this.btn_guardar);
@@ -197,6 +208,7 @@
             this.Controls.Add(this.label1);
             this.Name = "form_juego";
             this.Text = "form_juego";
+            this.Load += new System.EventHandler(this.form_juego_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,5 +230,6 @@
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_empezar;
         private System.Windows.Forms.Button btn_ingresar;
+        private System.Windows.Forms.ListBox lb_jugadores;
     }
 }
