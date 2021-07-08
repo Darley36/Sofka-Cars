@@ -16,23 +16,49 @@ namespace PruebaJuegoDeCarros.Datos
 
         SqlConnection con = new SqlConnection(cadena);
 
-        public List<string> consultaCarros()
+        public List<cls_Carro> consultaCarros()
         {
-            List<string> lista = new List<string>();
+            List<cls_Carro> lista = new List<cls_Carro>();
             con.Open();
-            string Query = "SELECT Marca FROM CARRO";
+            string Query = "SELECT Marca, ID FROM CARRO";
             SqlCommand cmd = new SqlCommand(Query, con);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
                 while (dr.Read())
                 {
-                    lista.Add(dr.GetString(0));
+                    cls_Carro carro = new cls_Carro(dr.GetString(0),"", dr.GetInt32(1));
+                    lista.Add(carro);
                 }
             }
             con.Close();
             return lista;
         }
 
+        public int buscarUsername(string name)
+        {
+            int count;
+            con.Open();
+            string Query = "SELECT COUNT(*) FROM JUGADOR where NombreUsuario = '" + name + "'";
+            SqlCommand cmd = new SqlCommand(Query, con);
+            count = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            return count;
+        }
+
+        public int insertarUser(cls_Jugador cj)
+        {
+            string Query = "INSERT INTO JUGADOR (NombreUsuario,Edad,NumVictorias,Id_carro) VALUES"+
+                "(@nombre, @edad, @numVictoria, @id_carro)";
+            con.Open();
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.Parameters.AddWithValue("@nombre", cj.NombreUsuario);
+            cmd.Parameters.AddWithValue("@edad", cj.Edad);
+            cmd.Parameters.AddWithValue("@numVictoria", cj.NumeroVictorias);
+            cmd.Parameters.AddWithValue("@id_carro", cj.Id_Carro);
+            int cont = cmd.ExecuteNonQuery();
+            con.Close();
+            return cont;
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PruebaJuegoDeCarros.Datos;
 
 namespace PruebaJuegoDeCarros.Clases
 {
@@ -30,5 +31,11 @@ namespace PruebaJuegoDeCarros.Clases
         public int Edad { get => edad; set => edad = value; }
         public int NumeroVictorias { get => numeroVictorias; set => numeroVictorias = value; }
         public int Id_Carro { get => id_Carro; set => id_Carro = value; }
+
+        public int buscaruser(string name)
+        {
+            DB db = new DB();         
+            return db.buscarUsername(name);
+        }
     }
 }

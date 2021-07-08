@@ -25,10 +25,10 @@ namespace PruebaJuegoDeCarros.Clases
         public string Color { get => color; set => color = value; }
         public int Id { get => id; set => id = value; }
 
-        public List<string> llamarCarros()
+        public List<cls_Carro> llamarCarros()
         {
             DB db = new DB();
-            List<string> lista = db.consultaCarros();
+            List<cls_Carro> lista = db.consultaCarros();
             return lista;
         }
     }
