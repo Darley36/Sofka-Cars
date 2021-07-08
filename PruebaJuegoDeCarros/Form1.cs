@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PruebaJuegoDeCarros.Forms;
+using PruebaJuegoDeCarros.Clases;
 
 namespace PruebaJuegoDeCarros
 {
@@ -35,6 +36,16 @@ namespace PruebaJuegoDeCarros
             this.Hide();
             form_juego fj = new form_juego();
             fj.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cls_Carro carro = new cls_Carro();
+            List<string> lista = carro.llamarCarros();
+            foreach (string element in lista)
+            {
+                this.lb_carro.Items.Add(element);
+            }
         }
     }
 }
