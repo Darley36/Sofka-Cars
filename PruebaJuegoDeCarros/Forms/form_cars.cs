@@ -35,8 +35,8 @@ namespace PruebaJuegoDeCarros.Forms
             posicion = establecerPosicion(jugador.Count());
             recorrido = llenarR();
             excluido = new List<int>(3);
-            MessageBox.Show(posicion[0].ToString() + posicion[1].ToString() + posicion[2].ToString());
             ubicar(0);
+            
         }
 
         List<int> llenarR()
@@ -117,13 +117,14 @@ namespace PruebaJuegoDeCarros.Forms
                 txt_Dis.Text = recorrido[cont].ToString();
                 if (excluido.Count()==3)
                 {
-                    MessageBox.Show("ya casi");
+                    actualizarVictoria();
+                    //MessageBox.Show("ya casi");
                 }
                 if (saberDistancia(recorrido[cont]))
                 {
                     if (excluido.Count() == 3)
                     {
-                        MessageBox.Show("ya casi");
+                        actualizarVictoria();
                     }
 
                     while (excluido.Contains(cont))
@@ -227,7 +228,6 @@ namespace PruebaJuegoDeCarros.Forms
 
         private void btn_siguiente_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(cont.ToString());
             txt_dado.Clear();
             txt_Dis.Clear();
             ubicar(cont);
@@ -240,6 +240,18 @@ namespace PruebaJuegoDeCarros.Forms
             int contUp = db.actualizarVictorias(cj);
             cls_Juego cg = new cls_Juego(0, namePista, jugador[posicion[excluido[0]]],
                 jugador[posicion[excluido[1]]], jugador[posicion[excluido[2]]]);
+            db.insertarJuego(cg);
+            terminar();
+        }
+
+        void terminar()
+        {
+
+            this.Close();
+            Form1 f = new Form1();
+            f.Refresh();
+            Application.Restart();
+            
 
         }
     }

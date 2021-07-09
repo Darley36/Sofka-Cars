@@ -69,7 +69,7 @@ namespace PruebaJuegoDeCarros.Forms
                             txt_jugador.Clear();
                             this.lb_jugadores.Items.Add(jugador.NombreUsuario);
                             ///MessageBox.Show("Jugador ingresado correctamente");
-                            if(lb_jugadores.Items.Count == 2)
+                            if(lb_jugadores.Items.Count == 3)
                             {
                                 btn_empezar.Enabled = true;
                             }                           

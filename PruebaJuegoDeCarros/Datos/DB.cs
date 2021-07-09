@@ -124,5 +124,21 @@ namespace PruebaJuegoDeCarros.Datos
             con.Close();
             return cont;
         }
+
+        public int insertarJuego(cls_Juego cg)
+        {
+            string Query = "INSERT INTO JUEGO (Nombre,Primer,Segundo,Tercero,Fecha) VALUES" +
+                "(@nombre, @primer, @segundo, @tercero, @fecha)";
+            con.Open();
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.Parameters.AddWithValue("@nombre", cg.NombreJuego);
+            cmd.Parameters.AddWithValue("@primer", cg.PrimerPuesto);
+            cmd.Parameters.AddWithValue("@segundo", cg.SegundoPuesto);
+            cmd.Parameters.AddWithValue("@tercero", cg.TercerPuesto);
+            cmd.Parameters.AddWithValue("@fecha", DateTime.Now.Date);
+            int cont = cmd.ExecuteNonQuery();
+            con.Close();
+            return cont;
+        }
     }
 }
