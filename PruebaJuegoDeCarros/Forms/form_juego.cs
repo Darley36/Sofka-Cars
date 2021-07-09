@@ -32,7 +32,7 @@ namespace PruebaJuegoDeCarros.Forms
         {
             this.Hide();
             form_cars fc = new form_cars();
-            fc.datosI(lpistas, jugadores);
+            fc.datosI(cmb_pista.Text, jugadores);
             fc.Show();
         }
 
@@ -68,7 +68,7 @@ namespace PruebaJuegoDeCarros.Forms
                             jugadores.Add(jugador.NombreUsuario);
                             txt_jugador.Clear();
                             this.lb_jugadores.Items.Add(jugador.NombreUsuario);
-                            MessageBox.Show("Jugador ingresado correctamente");
+                            ///MessageBox.Show("Jugador ingresado correctamente");
                             if(lb_jugadores.Items.Count == 2)
                             {
                                 btn_empezar.Enabled = true;

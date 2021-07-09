@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_salir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_km = new System.Windows.Forms.TextBox();
             this.btn_dado = new System.Windows.Forms.Button();
@@ -45,14 +45,15 @@
             this.txt_falta = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_salir
             // 
-            this.button1.Location = new System.Drawing.Point(29, 287);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 36);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_salir.Location = new System.Drawing.Point(16, 286);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(65, 36);
+            this.btn_salir.TabIndex = 0;
+            this.btn_salir.Text = "Salir";
+            this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // label1
             // 
@@ -67,6 +68,7 @@
             // 
             // txt_km
             // 
+            this.txt_km.Enabled = false;
             this.txt_km.Location = new System.Drawing.Point(493, 45);
             this.txt_km.Name = "txt_km";
             this.txt_km.Size = new System.Drawing.Size(81, 20);
@@ -90,7 +92,6 @@
             this.txt_dado.Name = "txt_dado";
             this.txt_dado.Size = new System.Drawing.Size(105, 83);
             this.txt_dado.TabIndex = 4;
-            this.txt_dado.Text = "1";
             this.txt_dado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -206,7 +207,7 @@
             this.Controls.Add(this.btn_dado);
             this.Controls.Add(this.txt_km);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_salir);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "form_cars";
             this.Text = "form_carros";
@@ -217,7 +218,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_km;
         private System.Windows.Forms.Button btn_dado;

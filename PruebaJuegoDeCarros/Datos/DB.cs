@@ -93,5 +93,24 @@ namespace PruebaJuegoDeCarros.Datos
             con.Close();
             return cont;
         }
+
+        public double consultakm(string name)
+        {
+            double km;
+            con.Open();
+            string Query = "SELECT Km FROM PISTA WHERE Nombre = '"+name+"'";
+            SqlCommand cmd = new SqlCommand(Query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                    km = dr.GetDouble(0);           
+            }
+            else
+            {
+                km = 0;
+            }
+            con.Close();
+            return km;
+        }
     }
 }
