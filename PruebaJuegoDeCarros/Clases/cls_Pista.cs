@@ -7,7 +7,7 @@ using PruebaJuegoDeCarros.Datos;
 
 namespace PruebaJuegoDeCarros.Clases
 {
-    class cls_Pista
+    public class cls_Pista
     {
         private string nombre;
         private int id;

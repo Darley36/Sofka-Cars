@@ -32,6 +32,7 @@ namespace PruebaJuegoDeCarros.Forms
         {
             this.Hide();
             form_cars fc = new form_cars();
+            fc.datosI(lpistas, jugadores);
             fc.Show();
         }
 
@@ -68,11 +69,15 @@ namespace PruebaJuegoDeCarros.Forms
                             txt_jugador.Clear();
                             this.lb_jugadores.Items.Add(jugador.NombreUsuario);
                             MessageBox.Show("Jugador ingresado correctamente");
+                            if(lb_jugadores.Items.Count == 2)
+                            {
+                                btn_empezar.Enabled = true;
+                            }                           
                         }
                     }
                     else
                     {
-                        jugadores.Add("SZS");
+                        jugadores.Add(jugador.NombreUsuario);
                         txt_jugador.Clear();
                         this.lb_jugadores.Items.Add(jugador.NombreUsuario);
                         MessageBox.Show("Jugador ingresado correctamente");

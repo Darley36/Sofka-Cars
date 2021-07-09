@@ -46,6 +46,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txt_km = new System.Windows.Forms.TextBox();
             this.btn_Salir = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -164,9 +165,10 @@
             // 
             // btn_empezar
             // 
-            this.btn_empezar.Location = new System.Drawing.Point(37, 263);
+            this.btn_empezar.Enabled = false;
+            this.btn_empezar.Location = new System.Drawing.Point(37, 332);
             this.btn_empezar.Name = "btn_empezar";
-            this.btn_empezar.Size = new System.Drawing.Size(143, 59);
+            this.btn_empezar.Size = new System.Drawing.Size(143, 46);
             this.btn_empezar.TabIndex = 12;
             this.btn_empezar.Text = "Empezar";
             this.btn_empezar.UseVisualStyleBackColor = true;
@@ -219,12 +221,22 @@
             this.btn_Salir.UseVisualStyleBackColor = true;
             this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
             // 
+            // label8
+            // 
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
+            this.label8.Location = new System.Drawing.Point(58, 273);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 49);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "El juego se habilitara cuando haya al menos 2 jugadores";
+            // 
             // form_juego
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(555, 326);
+            this.ClientSize = new System.Drawing.Size(555, 390);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_Salir);
             this.Controls.Add(this.txt_km);
             this.Controls.Add(this.label7);
@@ -271,5 +283,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_km;
         private System.Windows.Forms.Button btn_Salir;
+        private System.Windows.Forms.Label label8;
     }
 }
