@@ -16,6 +16,8 @@ namespace PruebaJuegoDeCarros.Forms
     {
         List<cls_Pista> pista;
         List<string> jugador;
+        List<int> posicion;
+        List<double> recorrido;
         DB db = new DB();
         public form_cars()
         {
@@ -26,7 +28,8 @@ namespace PruebaJuegoDeCarros.Forms
             jugador = jugadores;
             llenardistancia(namepista);
             llenarjugadores();
-            establecerPosicion(jugador.Count());
+            posicion = establecerPosicion(jugador.Count());
+            recorrido = new List<double>(jugador.Count());
 
             //foreach (string element in jugadores)
             //{
@@ -48,7 +51,7 @@ namespace PruebaJuegoDeCarros.Forms
             }
         }
 
-        void establecerPosicion(int cont)
+        List<int> establecerPosicion(int cont)
         {
             Random rnd = new Random((int)DateTime.Now.Ticks);
             int from = 1;
@@ -64,11 +67,27 @@ namespace PruebaJuegoDeCarros.Forms
                 }
                 num.Add(randomValue);
             }
+            return num;
+        }
+
+        void ubicar()
+        {
+            for (int i = 0; i < jugador.Count(); i++)
+            {
+                txt_jugador.Text = jugador[posicion[i]];
+                btn_dado.Enabled = true;
+            }
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btn_dado_Click(object sender, EventArgs e)
+        {
+            Random nume = new Random();
+            txt_dado.Text = nume.Next(1, 7).ToString();
         }
     }
 }

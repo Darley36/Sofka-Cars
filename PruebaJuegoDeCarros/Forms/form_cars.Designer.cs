@@ -77,17 +77,19 @@
             // btn_dado
             // 
             this.btn_dado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_dado.Location = new System.Drawing.Point(270, 47);
+            this.btn_dado.Location = new System.Drawing.Point(270, 71);
             this.btn_dado.Name = "btn_dado";
             this.btn_dado.Size = new System.Drawing.Size(105, 46);
             this.btn_dado.TabIndex = 3;
             this.btn_dado.Text = "Lanzar";
             this.btn_dado.UseVisualStyleBackColor = true;
+            this.btn_dado.Click += new System.EventHandler(this.btn_dado_Click);
             // 
             // txt_dado
             // 
+            this.txt_dado.Enabled = false;
             this.txt_dado.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_dado.Location = new System.Drawing.Point(270, 147);
+            this.txt_dado.Location = new System.Drawing.Point(270, 132);
             this.txt_dado.Multiline = true;
             this.txt_dado.Name = "txt_dado";
             this.txt_dado.Size = new System.Drawing.Size(105, 83);
