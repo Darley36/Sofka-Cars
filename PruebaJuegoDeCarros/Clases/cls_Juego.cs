@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PruebaJuegoDeCarros.Datos;
 
 namespace PruebaJuegoDeCarros.Clases
 {
@@ -14,6 +16,7 @@ namespace PruebaJuegoDeCarros.Clases
         private string segundoPuesto;
         private string tercerPuesto;
 
+        public cls_Juego() { }
         public cls_Juego(int numero, string nombreJuego, string primerPuesto, string segundoPuesto, string tercerPuesto)
         {
             this.numero = numero;
@@ -28,5 +31,12 @@ namespace PruebaJuegoDeCarros.Clases
         public string PrimerPuesto { get => primerPuesto; set => primerPuesto = value; }
         public string SegundoPuesto { get => segundoPuesto; set => segundoPuesto = value; }
         public string TercerPuesto { get => tercerPuesto; set => tercerPuesto = value; }
+
+        public DataTable consultarJuegos()
+        {
+            string Query = "SELECT Nombre, Primer, Segundo, Tercero, Fecha FROM JUEGO";
+            DB db = new DB();
+            return db.consultaJuegos(Query);
+        }
     }
 }

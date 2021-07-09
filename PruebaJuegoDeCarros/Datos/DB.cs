@@ -140,5 +140,37 @@ namespace PruebaJuegoDeCarros.Datos
             con.Close();
             return cont;
         }
+
+        public DataTable consultaJuegos(string Query)
+        {
+            con.Open();
+            string query = "SELECT Nombre, Primer, Segundo, Tercero, Fecha FROM JUEGO";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataAdapter datas = new SqlDataAdapter();
+            DataTable tabla = new DataTable();
+            datas.SelectCommand = cmd;
+            datas.Fill(tabla);
+            con.Close();
+            return tabla;
+        }
+
+        public int consultaVictoria(string name)
+        {
+            int V;
+            con.Open();
+            string Query = "SELECT NumVictorias FROM JUGADOR WHERE NombreUsuario = '" + name + "'";            
+            SqlCommand cmd = new SqlCommand(Query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                V = dr.GetInt32(0);
+            }
+            else
+            {
+                V = 0;
+            }
+            con.Close();
+            return V;
+        }
     }
 }
