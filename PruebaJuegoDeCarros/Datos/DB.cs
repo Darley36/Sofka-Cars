@@ -112,5 +112,17 @@ namespace PruebaJuegoDeCarros.Datos
             con.Close();
             return km;
         }
+
+        public int actualizarVictorias(cls_Jugador cj)
+        {
+            string Query = "UPDATE JUGADOR SET NumVictorias = NumVictorias + 1 " +
+               "WHERE NombreUsuario = @nombre";
+            con.Open();
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.Parameters.AddWithValue("@nombre", cj.NombreUsuario);
+            int cont = cmd.ExecuteNonQuery();
+            con.Close();
+            return cont;
+        }
     }
 }

@@ -21,12 +21,14 @@ namespace PruebaJuegoDeCarros.Forms
         List<int> excluido;
         int cont = 0;
         DB db = new DB();
+        string namePista;
         public form_cars()
         {
             InitializeComponent();
         }
         public void datosI(string namepista, List<string> jugadores)
         {
+            namePista = namepista;
             jugador = jugadores;
             llenardistancia(namepista);
             llenarjugadores();
@@ -35,11 +37,6 @@ namespace PruebaJuegoDeCarros.Forms
             excluido = new List<int>(3);
             MessageBox.Show(posicion[0].ToString() + posicion[1].ToString() + posicion[2].ToString());
             ubicar(0);
-
-            //foreach (string element in jugadores)
-            //{
-            //    this.cmb_jugador.Items.Add(element);
-            //}
         }
 
         List<int> llenarR()
@@ -90,13 +87,11 @@ namespace PruebaJuegoDeCarros.Forms
             if (String.IsNullOrEmpty(recorrido[posicion[i]].ToString()))
             {
                 txt_Dis.Text = "0";
-                MessageBox.Show("szs");
             }
             else
             {
                 txt_Dis.Text = recorrido[i].ToString();
                 btn_dado.Enabled = true;
-               // MessageBox.Show(recorrido[posicion[i]].ToString());
             }
                 
         }
@@ -222,7 +217,6 @@ namespace PruebaJuegoDeCarros.Forms
             if (rec >= Int32.Parse(txt_km.Text))
             {
                 excluido.Add(cont);
-                //MessageBox.Show(excluido[0].ToString());
                 return true;
             }
             else
@@ -237,6 +231,16 @@ namespace PruebaJuegoDeCarros.Forms
             txt_dado.Clear();
             txt_Dis.Clear();
             ubicar(cont);
+        }
+
+        void actualizarVictoria()
+        {
+            cls_Jugador cj = new cls_Jugador();
+            cj.NombreUsuario = jugador[posicion[excluido[0]]];
+            int contUp = db.actualizarVictorias(cj);
+            cls_Juego cg = new cls_Juego(0, namePista, jugador[posicion[excluido[0]]],
+                jugador[posicion[excluido[1]]], jugador[posicion[excluido[2]]]);
+
         }
     }
 }
