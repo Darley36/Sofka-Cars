@@ -137,9 +137,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
             this.label5.Location = new System.Drawing.Point(417, 106);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 17);
+            this.label5.Size = new System.Drawing.Size(110, 17);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Distancia";
+            this.label5.Text = "Distancia en KM";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6

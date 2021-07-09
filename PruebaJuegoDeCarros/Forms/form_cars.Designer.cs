@@ -38,12 +38,9 @@
             this.txt_Dis = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmb_jugador = new System.Windows.Forms.ComboBox();
-            this.txt_recorrido = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_falta = new System.Windows.Forms.TextBox();
             this.btn_siguiente = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_salir
@@ -61,7 +58,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(489, 9);
+            this.label1.Location = new System.Drawing.Point(492, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 24);
             this.label1.TabIndex = 1;
@@ -70,7 +67,7 @@
             // txt_km
             // 
             this.txt_km.Enabled = false;
-            this.txt_km.Location = new System.Drawing.Point(493, 45);
+            this.txt_km.Location = new System.Drawing.Point(496, 107);
             this.txt_km.Name = "txt_km";
             this.txt_km.Size = new System.Drawing.Size(81, 20);
             this.txt_km.TabIndex = 2;
@@ -140,57 +137,21 @@
             // cmb_jugador
             // 
             this.cmb_jugador.FormattingEnabled = true;
-            this.cmb_jugador.Location = new System.Drawing.Point(489, 155);
+            this.cmb_jugador.Location = new System.Drawing.Point(496, 242);
             this.cmb_jugador.Name = "cmb_jugador";
             this.cmb_jugador.Size = new System.Drawing.Size(100, 21);
             this.cmb_jugador.TabIndex = 9;
-            // 
-            // txt_recorrido
-            // 
-            this.txt_recorrido.Location = new System.Drawing.Point(489, 228);
-            this.txt_recorrido.Name = "txt_recorrido";
-            this.txt_recorrido.Size = new System.Drawing.Size(100, 20);
-            this.txt_recorrido.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(486, 125);
+            this.label4.Location = new System.Drawing.Point(493, 208);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 18);
+            this.label4.Size = new System.Drawing.Size(93, 18);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Jugador";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(486, 197);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 18);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Recorrido";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(486, 270);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 18);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Falta";
-            // 
-            // txt_falta
-            // 
-            this.txt_falta.Location = new System.Drawing.Point(489, 302);
-            this.txt_falta.Name = "txt_falta";
-            this.txt_falta.Size = new System.Drawing.Size(100, 20);
-            this.txt_falta.TabIndex = 14;
+            this.label4.Text = "Participantes";
             // 
             // btn_siguiente
             // 
@@ -203,18 +164,25 @@
             this.btn_siguiente.UseVisualStyleBackColor = true;
             this.btn_siguiente.Click += new System.EventHandler(this.btn_siguiente_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(583, 110);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Metros";
+            // 
             // form_cars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(601, 335);
+            this.ClientSize = new System.Drawing.Size(623, 335);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_siguiente);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txt_falta);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txt_recorrido);
             this.Controls.Add(this.cmb_jugador);
             this.Controls.Add(this.txt_Dis);
             this.Controls.Add(this.label3);
@@ -245,11 +213,8 @@
         private System.Windows.Forms.TextBox txt_Dis;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmb_jugador;
-        private System.Windows.Forms.TextBox txt_recorrido;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_falta;
         private System.Windows.Forms.Button btn_siguiente;
+        private System.Windows.Forms.Label label7;
     }
 }
