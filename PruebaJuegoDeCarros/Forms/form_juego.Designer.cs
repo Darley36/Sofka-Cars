@@ -228,7 +228,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(104, 49);
             this.label8.TabIndex = 18;
-            this.label8.Text = "El juego se habilitara cuando haya al menos 2 jugadores";
+            this.label8.Text = "El juego se habilitara cuando haya al menos 3 jugadores";
             // 
             // form_juego
             // 

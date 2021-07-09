@@ -43,6 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_falta = new System.Windows.Forms.TextBox();
+            this.btn_siguiente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_salir
@@ -109,6 +110,7 @@
             // 
             // txt_jugador
             // 
+            this.txt_jugador.Enabled = false;
             this.txt_jugador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_jugador.Location = new System.Drawing.Point(16, 93);
             this.txt_jugador.Name = "txt_jugador";
@@ -117,6 +119,7 @@
             // 
             // txt_Dis
             // 
+            this.txt_Dis.Enabled = false;
             this.txt_Dis.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Dis.Location = new System.Drawing.Point(16, 191);
             this.txt_Dis.Name = "txt_Dis";
@@ -189,12 +192,24 @@
             this.txt_falta.Size = new System.Drawing.Size(100, 20);
             this.txt_falta.TabIndex = 14;
             // 
+            // btn_siguiente
+            // 
+            this.btn_siguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_siguiente.Location = new System.Drawing.Point(270, 242);
+            this.btn_siguiente.Name = "btn_siguiente";
+            this.btn_siguiente.Size = new System.Drawing.Size(105, 46);
+            this.btn_siguiente.TabIndex = 16;
+            this.btn_siguiente.Text = "Siguiente";
+            this.btn_siguiente.UseVisualStyleBackColor = true;
+            this.btn_siguiente.Click += new System.EventHandler(this.btn_siguiente_Click);
+            // 
             // form_cars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(601, 335);
+            this.Controls.Add(this.btn_siguiente);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_falta);
             this.Controls.Add(this.label6);
@@ -235,5 +250,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_falta;
+        private System.Windows.Forms.Button btn_siguiente;
     }
 }

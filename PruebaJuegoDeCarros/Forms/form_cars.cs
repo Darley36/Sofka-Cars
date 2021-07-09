@@ -17,7 +17,9 @@ namespace PruebaJuegoDeCarros.Forms
         List<cls_Pista> pista;
         List<string> jugador;
         List<int> posicion;
-        List<double> recorrido;
+        List<int> recorrido;
+        List<int> excluido;
+        int cont = 0;
         DB db = new DB();
         public form_cars()
         {
@@ -29,7 +31,10 @@ namespace PruebaJuegoDeCarros.Forms
             llenardistancia(namepista);
             llenarjugadores();
             posicion = establecerPosicion(jugador.Count());
-            recorrido = new List<double>(jugador.Count());
+            recorrido = llenarR();
+            excluido = new List<int>(3);
+            MessageBox.Show(posicion[0].ToString() + posicion[1].ToString() + posicion[2].ToString());
+            ubicar(0);
 
             //foreach (string element in jugadores)
             //{
@@ -37,10 +42,19 @@ namespace PruebaJuegoDeCarros.Forms
             //}
         }
 
+        List<int> llenarR()
+        {
+            List<int> R = new List<int>();
+            for (int i = 1; i <= jugador.Count; i++)
+            {
+                R.Add(0);
+            }
+            return R;
+        }
         void llenardistancia(string namepista)
         {
             double km = db.consultakm(namepista);
-            txt_km.Text = km.ToString() + "KM";
+            txt_km.Text = (km*1000).ToString();
         }
 
         void llenarjugadores()
@@ -51,15 +65,15 @@ namespace PruebaJuegoDeCarros.Forms
             }
         }
 
-        List<int> establecerPosicion(int cont)
+        List<int> establecerPosicion(int contador)
         {
             Random rnd = new Random((int)DateTime.Now.Ticks);
-            int from = 1;
-            int to = cont + 1;
+            int from = 0;
+            int to = contador;
             List<int> num = new List<int>();
             int randomValue = rnd.Next(from, to);
             num.Add(randomValue);
-            for (int i = 1; i < cont; i++)
+            for (int i = 1; i < contador; i++)
             {
                 while (num.Contains(randomValue))
                 {
@@ -70,14 +84,27 @@ namespace PruebaJuegoDeCarros.Forms
             return num;
         }
 
-        void ubicar()
+        void ubicar(int i)
         {
-            for (int i = 0; i < jugador.Count(); i++)
-            {
                 txt_jugador.Text = jugador[posicion[i]];
-                btn_dado.Enabled = true;
+            if (String.IsNullOrEmpty(recorrido[posicion[i]].ToString()))
+            {
+                txt_Dis.Text = "0";
+                MessageBox.Show("szs");
             }
+            else
+            {
+                txt_Dis.Text = recorrido[i].ToString();
+                btn_dado.Enabled = true;
+               // MessageBox.Show(recorrido[posicion[i]].ToString());
+            }
+                
         }
+
+        //void recorridojugador(int posicion)
+        //{
+        //    recorrido[posicion] = 
+        //}
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
@@ -86,8 +113,130 @@ namespace PruebaJuegoDeCarros.Forms
 
         private void btn_dado_Click(object sender, EventArgs e)
         {
-            Random nume = new Random();
-            txt_dado.Text = nume.Next(1, 7).ToString();
+            btn_dado.Enabled = false;
+            if(cont < jugador.Count && !excluido.Contains(cont))
+            {
+                Random nume = new Random();
+                txt_dado.Text = nume.Next(1, 7).ToString();
+                recorrido[cont]= recorrido[cont] + calculaDistancia(Int32.Parse(txt_dado.Text));
+                txt_Dis.Text = recorrido[cont].ToString();
+                if (excluido.Count()==3)
+                {
+                    MessageBox.Show("ya casi");
+                }
+                if (saberDistancia(recorrido[cont]))
+                {
+                    if (excluido.Count() == 3)
+                    {
+                        MessageBox.Show("ya casi");
+                    }
+
+                    while (excluido.Contains(cont))
+                    {
+                        
+                        if (cont < jugador.Count-1)
+                        {
+                            cont = cont + 1;
+                        }
+                        else
+                        {
+                            cont = 0;
+                        }
+                    }
+                }
+                else
+                {
+                    if (excluido.Contains(cont))
+                    {
+                        while (excluido.Contains(cont))
+                        {
+                            if (cont < jugador.Count - 1)
+                            {
+                                cont = cont + 1;
+                            }
+                            else
+                            {
+                                cont = 0;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        cont = cont + 1;
+                        if (cont == jugador.Count)
+                        {
+                            cont = 0;
+                        }
+                        if (excluido.Contains(cont))
+                        {
+                            while (excluido.Contains(cont))
+                            {
+                                if (cont < jugador.Count - 1)
+                                {
+                                    cont = cont + 1;
+                                }
+                                else
+                                {
+                                    cont = 0;
+                                }
+                            }
+                        }
+                    }
+                }                
+            }
+            else
+            {
+                if (excluido.Contains(cont))
+                {
+                    while (excluido.Contains(cont))
+                    {
+                        if (cont < jugador.Count-1)
+                        {
+                            cont = cont + 1;
+                        }
+                        else
+                        {
+                            cont = 0;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("VIDAAAA");
+                    cont = cont + 1;
+                    if (cont == jugador.Count)
+                    {
+                        cont = 0;
+                    }
+                }
+            }
+        }
+        
+        int calculaDistancia(int pos)
+        {            
+            return pos * 100;
+        }
+
+        bool saberDistancia(int rec)
+        {
+            if (rec >= Int32.Parse(txt_km.Text))
+            {
+                excluido.Add(cont);
+                //MessageBox.Show(excluido[0].ToString());
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void btn_siguiente_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(cont.ToString());
+            txt_dado.Clear();
+            txt_Dis.Clear();
+            ubicar(cont);
         }
     }
 }

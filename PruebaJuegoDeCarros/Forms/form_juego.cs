@@ -152,7 +152,7 @@ namespace PruebaJuegoDeCarros.Forms
             else
             {
                 pista.Nombre = txt_nombre.Text;
-                pista.Longitud = Int32.Parse(txt_distancia.Text);
+                pista.Longitud = Double.Parse(txt_distancia.Text);
                 pista.Pais = txt_pais.Text;
                 pista.Id = 0;
 
